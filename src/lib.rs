@@ -9,18 +9,18 @@ use mysql::conn::QueryResult;
 
 pub struct Database
 {
-    name: String,
-    tables: Vec<String>
+    pub name: String,
+    pub tables: Vec<String>
 }
 
 pub struct DbServer {
-    name: String,
-    databases: Vec<Database>,
-    pool: MyPool
+    pub name: String,
+    pub databases: Vec<Database>,
+    pub pool: MyPool
 }
 
 impl DbServer {
-    fn load_metadata(&mut self) -> () {
+    pub fn load_metadata(&mut self) -> () {
         self.databases = 
         self.pool.prep_exec(r"SHOW databases", ())
             .map(|result| { // In this closure we sill map `QueryResult` to `Vec<Payment>`
