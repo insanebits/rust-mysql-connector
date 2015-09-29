@@ -1,3 +1,12 @@
+extern crate mysql;
+
+use std::default::Default;
+use mysql::conn::MyOpts;
+use mysql::conn::pool::MyPool;
+use mysql::value::from_row;
+use mysql::error::MyResult;
+use mysql::conn::QueryResult;
+
 pub struct Database
 {
     name: String,
