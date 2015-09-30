@@ -13,6 +13,16 @@ pub struct Database
     pub tables: Vec<String>
 }
 
+impl Clone for Database {
+	fn clone(&self) -> Database {
+		return Database {
+			name: self.name.clone(),
+			tables: self.tables.clone()
+		}
+	}
+}
+
+
 pub struct DbServer {
     pub name: String,
     pub databases: Vec<Database>,
